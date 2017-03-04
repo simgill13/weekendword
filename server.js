@@ -2,12 +2,10 @@
 // const express = require('express');
 // const app = express();
 // app.use(bodyParser.json());
-const path = require('path');
-app.use('/',express.static(path.join(__dirname, 'client')));
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
+app.use('/',express.static(path.join(__dirname, 'client')));
 const knex = require('knex')({
     client: 'pg',
     connection: {
@@ -106,5 +104,5 @@ const knex = require('knex')({
 
 
 
-app.listen(process.env.PORT || 8080, () => console.log(
-  `Your app is listening on port ${process.env.PORT || 8080 }`));
+// app.listen(process.env.PORT || 8080, () => console.log(
+//   `Your app is listening on port ${process.env.PORT || 8080 }`));
