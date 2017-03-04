@@ -37,16 +37,16 @@ const knex = require('knex')({
 
 app.post('/test', (req,res) => {
 res.status(200).send(JSON.stringify(req.body));
-	// const dummy = {
-	// 	name : req.params.name,
-	// 	description : req.params.description
-	// };
- //    knex('test')
- //    .insert(dummy)
- //    .then(data => {
- //    console.log(data);
- //    res.status(200).json(data);
- //    });
+	const dummy = {
+		name : req.body.name,
+		description : req.body.description
+	};
+    knex('test')
+    .insert(dummy)
+    .then(data => {
+    console.log(data);
+    res.status(200).json(data);
+    });
 });
 
 
