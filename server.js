@@ -34,12 +34,33 @@ app.post('/test', (req,res) => {
 
 
 
+// app.post('/test', (req,res) => {
+
+// const dummy = {
+// name : req.params.name,
+// description : req.params.description
+// };
+
+
+//     knex
+//     .insert(dummy)
+//     .then(data => {
+//     console.log(data);
+//     res.status(200).json(data);
+//     });
+// });
 
 
 
 
 
 
+
+app.get('/testt', (req,res) => {
+
+res.status(200).json({message:'hello'});
+
+});
 
 
 
