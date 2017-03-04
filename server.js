@@ -2,6 +2,10 @@
 // const express = require('express');
 // const app = express();
 // app.use(bodyParser.json());
+
+const app = express();
+
+app.use(bodyParser.json());
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -21,9 +25,6 @@ const knex = require('knex')({
 
 
 
-// const app = express();
-
-// app.use(bodyParser.json());
 
 // app.post('/recipes', (req, res) => {
 //     const requiredFields = ['name', 'description', 'steps'];
