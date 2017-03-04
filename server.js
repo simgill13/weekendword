@@ -34,7 +34,7 @@ const knex = require('knex')({
 
 
 
-app.post('/test/:name/:description', (req,res) => {
+app.post('/test', (req,res) => {
 
 	const dummy = {
 		name : req.params.name,
@@ -73,6 +73,6 @@ app.get('/test', (req,res) => {
 
 
 
-
+// DO NOT REMOVE THIS -----EVER ----it is needed
 app.listen(process.env.PORT || 8080, () => console.log(
   `Your app is listening on port ${process.env.PORT || 8080 }`));
