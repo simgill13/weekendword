@@ -60,6 +60,11 @@ app.get('/test', (req,res) => {
 
 
 
+// steps to make this work
+//1 run npm install
+//2 push to github
+// push to heroku master
+// check "open" app on heroku
 
 
 
