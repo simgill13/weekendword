@@ -5,6 +5,11 @@ app.use(bodyParser.json());
 const path = require('path');
 app.use('/',express.static(path.join(__dirname, 'client')));
 
+var pg = require('pg');
+//or native libpq bindings
+//var pg = require('pg').native
+
+
 
 
 
