@@ -41,15 +41,15 @@ app.post('/test/:name/:description', (req,res) => {
 
 
 
-app.get('/test', (req,res) => {
+// app.get('/test', (req,res) => {
 
-	knex
-	.select('*')
-	.from('test')
-	.then(response => {
-		res.status(200).json(response);
-	});
-});
+// 	knex
+// 	.select('*')
+// 	.from('test')
+// 	.then(response => {
+// 		res.status(200).json(response);
+// 	});
+// });
 
 
 
