@@ -19,19 +19,15 @@ const knex = require('knex')({
 
 
 
-app.post('/test', (req,res) => {
-
-	const dummy = {
-		name : req.params.name,
-		description : req.params.description
-	};
-
-
-    knex
-    .insert(dummy)
+app.('/test', (req,res) => {
+    knex.schema.createTableIfNotExists("test", function (table) {
+        table.increments(); 
+        table.string('name');
+        table.string('description');
+    })
     .then(data => {
     	console.log(data);
-    	res.status(200).json(data);
+    	res.status(200).json({message: "hope"});
     });
 });
 
@@ -41,15 +37,6 @@ app.post('/test', (req,res) => {
 
 
 
-// app.get('/test', (req,res) => {
-
-// 	knex
-// 	.select('*')
-// 	.from('test')
-// 	.then(response => {
-// 		res.status(200).json(response);
-// 	});
-// });
 
 
 
@@ -63,3 +50,13 @@ app.post('/test', (req,res) => {
 
 
 
+
+
+
+
+
+
+
+
+app.listen(process.env.PORT || 8080, () => console.log(
+  `Your app is listening on port ${process.env.PORT || 8080 }`));
