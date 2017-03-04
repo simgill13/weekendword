@@ -19,15 +19,20 @@ const knex = require('knex')({
 
 
 
-app.get('/test', (req,res) => {
-    knex.schema.createTableIfNotExists("test", function (table) {
-        table.increments(); 
-        table.string('name');
-        table.string('description');
+app.post('/test/:name/:description', (req,res) => {
+
+const dummy = {
+	name : req.params.name,
+	description : req.params.description
+};
+
+
+    knex
+    .insert(dummy)
     })
     .then(data => {
     	console.log(data);
-    	res.status(200).json({message: "hope"});
+    	res.status(200).json(data);
     });
 });
 
@@ -37,7 +42,16 @@ app.get('/test', (req,res) => {
 
 
 
+app.get('/test', (req,res) => {
 
+	knex
+	.select('*')
+	.from('test')
+	.then(response => {
+		res.status(200).json(response);
+	});
+
+});
 
 
 
