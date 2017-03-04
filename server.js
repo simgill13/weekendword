@@ -1,82 +1,20 @@
-const bodyParser = require('body-parser');
 const express = require('express');
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
 const app = express();
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+// const bodyParser = require('body-parser');
 const path = require('path');
-const {blogPost} = require('./model');
-const {PORT, DATABASE_URL} = require('./config');
 app.use('/',express.static(path.join(__dirname, 'client')));
+// const knex = require('knex')({
+//     client: 'pg',
+//     connection: {
+//     host : 'postgres://dyywuotk:7TvX8RVk9BrOZdAwDGdc32WaUu2pQSuh@babar.elephantsql.com:5432/dyywuotk',
+//     user : 'dyywuotk',
+//     password : '7TvX8RVk9BrOZdAwDGdc32WaUu2pQSuh',
+//     database : 'dyywuotk'
+//   },
+// });
 
 
 
-app.get('/post', (req, res) => {
-   
-  res.sendStatus(200);     	
-})
-
-
-
-
-
-
-let server;
-function runServer(databaseUrl=DATABASE_URL, port=PORT) {
-
-  return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, err => {
-      if (err) {
-        return reject(err);
-      }
-      server = app.listen(port, () => {
-        console.log(`Your app is listening on port ${port}`);
-        resolve();
-      })
-      .on('error', err => {
-        mongoose.disconnect();
-        reject(err);
-      });
-    });
-  });
-}
-
-function closeServer() {
-  return mongoose.disconnect().then(() => {
-     return new Promise((resolve, reject) => {
-       console.log('Closing server');
-       server.close(err => {
-           if (err) {
-               return reject(err);
-           }
-           resolve();
-       });
-     });
-  });
-}
-
-
-
-if (require.main === module) {
-  runServer().catch(err => console.error(err));
-};
-
-module.exports = {app, runServer, closeServer};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// app.listen(process.env.PORT || 8080, () => console.log(
+//   `Your app is listening on port ${process.env.PORT || 8080 }`));
