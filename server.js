@@ -21,15 +21,14 @@ const knex = require('knex')({
 
 app.post('/test/:name/:description', (req,res) => {
 
-const dummy = {
-	name : req.params.name,
-	description : req.params.description
-};
+	const dummy = {
+		name : req.params.name,
+		description : req.params.description
+	};
 
 
     knex
     .insert(dummy)
-    })
     .then(data => {
     	console.log(data);
     	res.status(200).json(data);
@@ -50,7 +49,6 @@ app.get('/test', (req,res) => {
 	.then(response => {
 		res.status(200).json(response);
 	});
-
 });
 
 
@@ -72,5 +70,12 @@ app.get('/test', (req,res) => {
 
 
 
-app.listen(process.env.PORT || 8080, () => console.log(
-  `Your app is listening on port ${process.env.PORT || 8080 }`));
+
+
+
+
+
+
+
+
+
