@@ -49,15 +49,12 @@ app.post('/test/:name/:description', (req,res) => {
 });
 
 
-
-
-
-
-
-app.get('/testt', (req,res) => {
-
-res.status(200).json({message:'hello'});
-
+app.get('/test', (req,res) => {
+	knex('test')
+	.select()
+	.then(data => {
+		res.status(200).json(data);
+	});
 });
 
 
