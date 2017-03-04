@@ -19,7 +19,7 @@ const knex = require('knex')({
 
 
 
-app.post('/test/:name/:description', (req,res) => {
+app.post('/test', (req,res) => {
 
 	const dummy = {
 		name : req.params.name,
