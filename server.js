@@ -2,8 +2,8 @@
 // const express = require('express');
 // const app = express();
 // app.use(bodyParser.json());
-// const path = require('path');
-// app.use('/',express.static(path.join(__dirname, 'client')));
+const path = require('path');
+app.use('/',express.static(path.join(__dirname, 'client')));
 
 
 const express = require('express');
