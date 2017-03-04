@@ -35,17 +35,17 @@ const knex = require('knex')({
 
 
 app.post('/test', (req,res) => {
-
-	const dummy = {
-		name : req.params.name,
-		description : req.params.description
-	};
-    knex('test')
-    .insert(dummy)
-    .then(data => {
-    console.log(data);
-    res.status(200).json(data);
-    });
+console.log(req);
+	// const dummy = {
+	// 	name : req.params.name,
+	// 	description : req.params.description
+	// };
+ //    knex('test')
+ //    .insert(dummy)
+ //    .then(data => {
+ //    console.log(data);
+ //    res.status(200).json(data);
+ //    });
 });
 
 
