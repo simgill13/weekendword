@@ -19,7 +19,7 @@ const knex = require('knex')({
 
 
 
-app.('/test', (req,res) => {
+app.post('/test', (req,res) => {
     knex.schema.createTableIfNotExists("test", function (table) {
         table.increments(); 
         table.string('name');
