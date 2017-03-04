@@ -35,7 +35,7 @@ const knex = require('knex')({
 
 
 app.post('/test', (req,res) => {
-res.status(200).send(req.body);
+res.status(200).send(req.body.name);
 	// const dummy = {
 	// 	name : req.params.name,
 	// 	description : req.params.description
