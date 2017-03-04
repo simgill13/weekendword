@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+const jsonParser = bodyParser.json();
+// app.use(bodyParser.urlencoded({extended: true}));
 const path = require('path');
 app.use('/',express.static(path.join(__dirname, 'client')));
 const knex = require('knex')({
@@ -34,7 +35,7 @@ const knex = require('knex')({
 
 
 
-app.post('/test', (req,res) => {
+app.post('/test',jsonParser, (req,res) => {
 res.status(200).send(req.body.name);
 	// const dummy = {
 	// 	name : req.params.name,
